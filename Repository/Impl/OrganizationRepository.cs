@@ -1,6 +1,9 @@
-﻿using Fitema.Database;
-using Fitema.Dtos.User;
+﻿using Dapper;
+using Fitema.Database;
 using Fitema.Models;
+using Fitema.Requests;
+using Microsoft.AspNetCore.DataProtection.KeyManagement;
+using System.Transactions;
 
 namespace Fitema.Repository.Contracts
 {
@@ -13,19 +16,42 @@ namespace Fitema.Repository.Contracts
             _databaseConnectionFactory = databaseConnectionFactory;
         }
 
-        public Task CreateOrganization(OrganizationCreateDto data)
+        public async Task CreateOrganization(OrganizationRequest data)
         {
-            throw new NotImplementedException();
+            using var db = _databaseConnectionFactory.GetDbConnection();
+            await db.ExecuteScalarAsync(@"
+                insert into Organizations (
+                    Name, Address, Description, StatusId
+                )
+                values (
+                    @Name, @Address, @Description, @StatusId
+                );
+                select Id from Organizations where Id = last_insert_id()
+            ", data);
         }
 
-        public Task<Organizations> GetOrganizationById(int id)
+        public async Task<Organizations> GetOrganizationById(int id)
         {
-            throw new NotImplementedException();
+            using var db = _databaseConnectionFactory.GetDbConnection();
+            return await db.QueryFirstAsync<Organizations>(@"
+                select Name, Address, Description, StatusId
+                from Organizations
+                where Id = @Key
+		    ", new { Key = $"{id}" }
+            );
         }
 
-        public Task UpdateOrganization(OrganizationCreateDto data)
+        public async Task UpdateOrganization(Organizations data)
         {
-            throw new NotImplementedException();
+            using var db = _databaseConnectionFactory.GetDbConnection();
+            await db.ExecuteAsync(@"
+                update Organizations 
+                set Name = @Name,
+                    Address = @Address,
+                    Description = @Description,
+                    UpdatedAt = now()
+                where Id = @Id
+            ", data);
         }
     }
 }

@@ -6,6 +6,7 @@ namespace Fitema.Models
 		public Products()
 		{
 		}
+		public int OrgId { get; set; }
 		public int Price { get; set; }
 		public string Name { get; set; }
 		public int Promo { get; set; }

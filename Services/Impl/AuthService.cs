@@ -31,6 +31,7 @@ namespace Fitema.Services.Impl
             var claims = new List<Claim>();
             claims.Add(new Claim(ClaimTypes.Name, user.FullName));
             claims.Add(new Claim(ClaimTypes.Email, user.Email));
+            claims.Add(new Claim("Organization", user.OrgId.ToString()));
             claims.Add(new Claim(ClaimTypes.Role, user.Role));
             var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
             var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);

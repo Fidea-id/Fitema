@@ -1,12 +1,12 @@
-﻿using Fitema.Dtos.User;
-using Fitema.Models;
+﻿using Fitema.Models;
+using Fitema.Requests;
 
 namespace Fitema.Repository.Contracts
 {
     public interface IOrganizationRepository
     {
-        Task CreateOrganization(OrganizationCreateDto data);
+        Task CreateOrganization(OrganizationRequest data);
         Task<Organizations> GetOrganizationById(int id);
-        Task UpdateOrganization(OrganizationCreateDto data);
+        Task UpdateOrganization(Organizations data);
     }
 }

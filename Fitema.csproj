@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Dtos\User\" />
     <Folder Include="Models\ViewModels\" />
   </ItemGroup>
 

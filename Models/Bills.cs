@@ -5,10 +5,10 @@
         public Bills()
         {
         }
-        public int OrdId { get; set; }
+        public int OrgId { get; set; }
         public int PlanId { get; set; }
         public string VoucherCode { get; set; }
         public int TotalPayment { get; set; }
-        public string Status { get; set; }
+        public int StatusId { get; set; }
     }
 }

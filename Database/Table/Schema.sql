@@ -41,10 +41,10 @@ CREATE TABLE IF NOT EXISTS `bills` (
 -- Dumping structure for table fitema.customers
 CREATE TABLE IF NOT EXISTS `customers` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `OrgId` int(11) DEFAULT NULL,
   `Name` varchar(255) COLLATE armscii8_bin DEFAULT NULL,
   `Email` varchar(255) COLLATE armscii8_bin DEFAULT NULL,
   `PhoneNumber` varchar(255) COLLATE armscii8_bin DEFAULT NULL,
-  `OrgId` int(11) DEFAULT NULL,
   `CreatedAt` datetime DEFAULT NULL,
   `UpdatedAt` datetime DEFAULT NULL,
   PRIMARY KEY (`Id`),
@@ -119,13 +119,16 @@ CREATE TABLE IF NOT EXISTS `plans` (
 -- Dumping structure for table fitema.products
 CREATE TABLE IF NOT EXISTS `products` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `OrgId` int(11) DEFAULT NULL,
   `Name` varchar(255) COLLATE armscii8_bin DEFAULT NULL,
   `Price` int(11) DEFAULT NULL,
   `Promo` int(11) DEFAULT NULL,
   `Period` varchar(255) COLLATE armscii8_bin DEFAULT NULL,
   `CreatedAt` datetime DEFAULT NULL,
   `UpdatedAt` datetime DEFAULT NULL,
-  PRIMARY KEY (`Id`)
+  PRIMARY KEY (`Id`),
+  KEY `FK_Products_Organizations` (`OrgId`),
+  CONSTRAINT `FK_Products_Organizations` FOREIGN KEY (`OrgId`) REFERENCES `organizations` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=armscii8 COLLATE=armscii8_bin;
 
 -- Data exporting was unselected.
@@ -158,6 +161,7 @@ CREATE TABLE IF NOT EXISTS `transactions` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `CustomerId` int(11) DEFAULT NULL,
   `ProductId` int(11) DEFAULT NULL,
+  `OrgId` int(11) DEFAULT NULL,
   `OrderFrom` varchar(255) COLLATE armscii8_bin DEFAULT NULL,
   `StartDate` datetime DEFAULT NULL,
   `EndDate` datetime DEFAULT NULL,
@@ -170,9 +174,11 @@ CREATE TABLE IF NOT EXISTS `transactions` (
   KEY `FK_Transactions_Customers` (`CustomerId`),
   KEY `FK_Transactions_Products` (`ProductId`),
   KEY `FK_Transactions_Status` (`StatusId`),
+  KEY `FK_Transactions_Organizations` (`OrgId`),
   CONSTRAINT `FK_Transactions_Customers` FOREIGN KEY (`CustomerId`) REFERENCES `customers` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `FK_Transactions_Organizations` FOREIGN KEY (`OrgId`) REFERENCES `organizations` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK_Transactions_Products` FOREIGN KEY (`ProductId`) REFERENCES `products` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `FK_Transactions_Status` FOREIGN KEY (`StatusId`) REFERENCES `status` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `FK_Transactions_Status` FOREIGN KEY (`StatusId`) REFERENCES `status` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=armscii8 COLLATE=armscii8_bin;
 
 -- Data exporting was unselected.
