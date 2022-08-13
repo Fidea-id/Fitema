@@ -17,37 +17,9 @@
 
   <ItemGroup>
     <Folder Include="Models\ViewModels\" />
-    <Folder Include="wwwroot\lib\excel-js\" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\css\bootstrap-grid.css.map" />
-    <None Include="wwwroot\css\bootstrap-grid.min.css.map" />
-    <None Include="wwwroot\css\bootstrap-reboot.css.map" />
-    <None Include="wwwroot\css\bootstrap-reboot.min.css.map" />
-    <None Include="wwwroot\css\bootstrap.css.map" />
-    <None Include="wwwroot\css\bootstrap.min.css.map" />
-    <None Include="wwwroot\css\devextreme\fonts\Roboto-300.woff2" />
-    <None Include="wwwroot\css\devextreme\fonts\Roboto-400.woff2" />
-    <None Include="wwwroot\css\devextreme\fonts\Roboto-500.woff2" />
-    <None Include="wwwroot\css\devextreme\fonts\Roboto-700.woff2" />
-    <None Include="wwwroot\css\devextreme\icons\dxicons.woff2" />
-    <None Include="wwwroot\css\devextreme\icons\dxiconsios.woff2" />
-    <None Include="wwwroot\css\devextreme\icons\dxiconsmaterial.woff2" />
-    <None Include="wwwroot\js\admin-dashboard.js" />
-    <None Include="wwwroot\js\admin.js" />
-    <None Include="wwwroot\js\app.js" />
-    <None Include="wwwroot\js\auth.js" />
-    <None Include="wwwroot\js\bootstrap.bundle.js" />
-    <None Include="wwwroot\js\bootstrap.bundle.js.map" />
-    <None Include="wwwroot\js\bootstrap.bundle.min.js" />
-    <None Include="wwwroot\js\bootstrap.bundle.min.js.map" />
-    <None Include="wwwroot\js\bootstrap.js" />
-    <None Include="wwwroot\js\bootstrap.js.map" />
-    <None Include="wwwroot\js\bootstrap.min.js" />
-    <None Include="wwwroot\js\bootstrap.min.js.map" />
-    <None Include="wwwroot\js\cookies.js" />
-    <None Include="wwwroot\js\croppie.js" />
     <None Include="wwwroot\js\devextreme\aspnet\dx.aspnet.data.js" />
     <None Include="wwwroot\js\devextreme\aspnet\dx.aspnet.mvc.js" />
     <None Include="wwwroot\js\devextreme\bootstrap.js" />
@@ -113,17 +85,7 @@
     <None Include="wwwroot\js\devextreme\vectormap-utils\dx.vectormaputils.debug.js" />
     <None Include="wwwroot\js\devextreme\vectormap-utils\dx.vectormaputils.js" />
     <None Include="wwwroot\js\devextreme\vectormap-utils\dx.vectormaputils.node.js" />
-    <None Include="wwwroot\js\duplicate.js" />
-    <None Include="wwwroot\js\home.js" />
-    <None Include="wwwroot\js\jquery-3.4.1.min.js" />
-    <None Include="wwwroot\js\jquery.mask.min.js" />
-    <None Include="wwwroot\js\jquery.validate.min.js" />
-    <None Include="wwwroot\js\main.min.js" />
-    <None Include="wwwroot\js\popper.min.js" />
     <None Include="wwwroot\js\site.js" />
-    <None Include="wwwroot\js\sweetalert2.min.js" />
-    <None Include="wwwroot\js\upload.js" />
-    <None Include="wwwroot\js\verify.js" />
     <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
     <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
     <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map" />

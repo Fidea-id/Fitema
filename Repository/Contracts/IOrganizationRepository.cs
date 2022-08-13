@@ -8,6 +8,5 @@ namespace Fitema.Repository.Contracts
         Task CreateOrganization(OrganizationCreateDto data);
         Task<Organizations> GetOrganizationById(int id);
         Task UpdateOrganization(OrganizationCreateDto data);
-        Task
     }
 }

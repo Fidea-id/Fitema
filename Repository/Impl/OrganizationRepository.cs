@@ -1,4 +1,6 @@
 ﻿using Fitema.Database;
+using Fitema.Dtos.User;
+using Fitema.Models;
 
 namespace Fitema.Repository.Contracts
 {
@@ -9,6 +11,21 @@ namespace Fitema.Repository.Contracts
         public OrganizationRepository(IDatabaseConnectionFactory databaseConnectionFactory)
         {
             _databaseConnectionFactory = databaseConnectionFactory;
+        }
+
+        public Task CreateOrganization(OrganizationCreateDto data)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Organizations> GetOrganizationById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task UpdateOrganization(OrganizationCreateDto data)
+        {
+            throw new NotImplementedException();
         }
     }
 }
