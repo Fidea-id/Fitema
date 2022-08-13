@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <link rel="icon" href="~/img/favicon-s.png">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="@Xsrf.GetAndStoreTokens(Context).RequestToken">
+    <meta name="base-url" content="@ViewData["base_url"]">
+
+    <title>@ViewData["Title"]</title>
+
+    <!-- Styles -->
+    <link href="~/css/bootstrap.css" rel="stylesheet">
+    <link href="~/css/custom-auth.css" asp-append-version="true" rel="stylesheet">
+    <link href="~/libs/fontawesome/css/all.css" rel="stylesheet">
+
+    @RenderSection("Styles", required: false)
+</head>
+<body>
+    <header class="header bg-philips-dark">
+        <center>
+
+        <div class="container-lg">
+            <div class="row">
+                <nav class="navbar navbar-expand-lg navbar-dark">
+                    <div class="navbar-brand brand-placeholder">
+                        <div class="brand-shape">
+                            <a href="/Auth" class="brand-philips-logo">
+                                <img src="~/img/signify-logo.png">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse collapse-philips" id="navbarCollapse">
+                    </div>
+                </nav>
+            </div>
+        </div>
+        </center>
+    </header>
+
+    <main role="main" style="background:#F9FAFC;">
+        <div class="container-lg">
+            @RenderBody()
+        </div>
+    </main>
+    
+    <footer id="footer-signify" class="py-5">
+        <div class="container-lg" style="padding-top: 50px;padding-bottom: 50px;">
+            <div class="row">
+                <div class="col-lg-12 snw-center">
+                    <img class="img-fluid" src="~/img/signify-logo.png">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-lg-12 snw-center">
+                    <hr style="border: 1px solid #707070;"/>
+                </div>
+            </div>
+            <div class="row mt-3 snw-footer-label-container">
+                <div class="col-lg-3 snw-footer-label-content">
+                    <a class="snw-footer-label snw-fl-l" href="#">Site owner</a>
+                </div>
+                <div class="col-lg-3 snw-footer-label-content">
+                    <a class="snw-footer-label" href="#">Cookies notice</a>
+                </div>
+                <div class="col-lg-3 snw-footer-label-content">
+                    <a class="snw-footer-label" href="#">Term of use</a>
+                </div>
+                <div class="col-lg-3 snw-footer-label-content">
+                    <a class="snw-footer-label snw-fl-r" href="#">Product Security</a>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-12 snw-center snw-footer-label">
+                    <p>@@2022 Fidea All right reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="~/js/jquery-3.4.1.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/cookies.js"></script>
+    @RenderSection("scripts", required: false)
+    <script>
+        $(function () {
+            $('.footer-select2').hover(function () {
+                $('.ul_situs').css('display', 'block');
+            }, function () {
+                // on mouseout, reset the background colour
+                $('.ul_situs').hover(function () {
+                    $('.ul_situs').css('display', 'block');
+                }, function () {
+                    $('.ul_situs').css('display', 'none');
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

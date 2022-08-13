@@ -1,0 +1,70 @@
+﻿@{
+    Layout = "_AuthLayout";
+    var returnUrl = ViewData["ReturnUrl"] as string;
+}
+
+@section Styles{
+    <link rel="stylesheet" href="~/css/sweetalert2.min.css">
+}
+
+<h1>Welcome to Signify</h1>
+
+<div class="row mt-4">
+    <div class="col-md-6 btm-20">
+        <img class="snw-loginimg" src="~/img/login.png">
+    </div>
+        <div class="col-md-6 btm-20">
+        <form id="form-login">
+            <div class="row btm-20">
+                <div class="col-md-12">
+                    <h3>Login</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <label class="snw-label">Email Address</label>
+                    <input type="email" class="form-control shadow-none snw-textbox" id="Username" name="Username"
+                            placeholder="Insert your email" data-parsley-type-message="Email invalid" data-parsley-required-message="Email is required" required>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <label class="snw-label">Password</label>
+                    <div>
+                        <input type="password" class="form-control shadow-none snw-textbox" id="Password" name="Password"
+                                placeholder="Insert your password" data-parsley-error-message="Password is required" required />
+                        <span toggle="#password" class="fa fa-fw field-icon toggle-password fa-eye-slash"></span>
+                        <div id="errors-field"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <label for="remember">
+                        <input type="checkbox" name="remember" id="remember">
+                        <input type="hidden" value="@returnUrl" name="ReturnUrl" id="ReturnUrl">
+
+                        <span class="snw-sublabel">
+                            Remember me
+                        </span>
+                    </label>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-4 offset-md-8">
+                    <button type="submit" class="btn btn-primary btn-block snw-submit">Login</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/jquery.mask.min.js"></script>
+    <script src="~/js/jquery.validate.min.js"></script>
+    <script src="~/libs/parsleyjs/parsley.min.js"></script>
+    <script src="~/js/sweetalert2.min.js"></script>
+    <script src="~/js/auth.js" asp-append-version="true"></script>
+    <script type="text/javascript">
+    </script>
+}
