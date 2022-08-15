@@ -1,13 +1,7 @@
-using System.Security.Claims;
-using AutoMapper;
-using Fitema.Dtos;
-using Fitema.Dtos.Auth;
-using Fitema.Requests;
-using Fitema.Services.Contracts;
-using Fitema.Utils.Constants;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace SaveWinMalaysia.Controllers
 {
@@ -17,7 +11,7 @@ namespace SaveWinMalaysia.Controllers
         /// This controller is for Auth only, login, decide user role access and etc.
         /// </summary>
         /// <returns></returns>
-        
+
         private readonly ILogger<AuthController> _logger;
         private readonly IMapper _mapper;
         private readonly IAuthService _authService;
@@ -25,7 +19,7 @@ namespace SaveWinMalaysia.Controllers
             ILogger<AuthController> logger,
             IMapper mapper,
             IAuthService authService
-	    )
+        )
         {
             _logger = logger;
             _mapper = mapper;
@@ -41,7 +35,8 @@ namespace SaveWinMalaysia.Controllers
             if (HttpContext.User.Identity!.IsAuthenticated)
             {
                 var user = HttpContext.User;
-                if(user.IsInRole(RoleOfUser.ADMIN)){
+                if (user.IsInRole(RoleOfUser.ADMIN))
+                {
                     return Redirect("/admin/dashboard");
                 }
             }
@@ -76,14 +71,16 @@ namespace SaveWinMalaysia.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login([FromForm]LoginRequest request)
+        public async Task<IActionResult> Login([FromForm] LoginRequest request)
         {
-            try {
+            try
+            {
 
-			    var user = _mapper.Map<LoginDto>(request);
-			    (ResponseDto result, ClaimsPrincipal? claimsPrincipal) = await _authService.Login(user);
-			    if (result.Success) { 
-				    await HttpContext.SignInAsync(claimsPrincipal, new AuthenticationProperties { IsPersistent = request.RememberMe ?? false});
+                var user = _mapper.Map<LoginDto>(request);
+                (ResponseDto result, ClaimsPrincipal? claimsPrincipal) = await _authService.Login(user);
+                if (result.Success)
+                {
+                    await HttpContext.SignInAsync(claimsPrincipal, new AuthenticationProperties { IsPersistent = request.RememberMe ?? false });
                     var role = claimsPrincipal.Claims
                         .Where(c => c.Type == ClaimTypes.Role)
                         .Select(c => c.Value).FirstOrDefault();
@@ -92,22 +89,24 @@ namespace SaveWinMalaysia.Controllers
                     {
                         return Ok(request.ReturnUrl);
                     }
-                    if(role == RoleOfUser.ADMIN)
+                    if (role == RoleOfUser.ADMIN)
                     {
                         return Ok("/Admin/Dashboard");
                     }
                 }
-			    return BadRequest(result);
-	        } catch (Exception e) {
+                return BadRequest(result);
+            }
+            catch (Exception e)
+            {
                 _logger.LogError(e.ToString());
                 return StatusCode(500);
-	        }
+            }
         }
 
         [HttpGet]
-        public string GenPassword(string password) 
-		{
-            return _authService.GenPassword(password); 
-	    }
+        public string GenPassword(string password)
+        {
+            return _authService.GenPassword(password);
+        }
     }
 }

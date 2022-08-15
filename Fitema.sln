@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32721.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fitema", "Fitema.csproj", "{EC22823D-1BDA-4FFF-868F-08D951821589}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fitema", "Fitema.csproj", "{EC22823D-1BDA-4FFF-868F-08D951821589}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitemaAPI", "..\FitemaAPI\FitemaAPI.csproj", "{95C3D191-981C-4D2F-87E7-1D625DA45509}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitemaEntity", "..\FitemaEntity\FitemaEntity.csproj", "{A1E1341F-54EB-4434-A60A-0B24A3D0938F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{EC22823D-1BDA-4FFF-868F-08D951821589}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC22823D-1BDA-4FFF-868F-08D951821589}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC22823D-1BDA-4FFF-868F-08D951821589}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95C3D191-981C-4D2F-87E7-1D625DA45509}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95C3D191-981C-4D2F-87E7-1D625DA45509}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95C3D191-981C-4D2F-87E7-1D625DA45509}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95C3D191-981C-4D2F-87E7-1D625DA45509}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1E1341F-54EB-4434-A60A-0B24A3D0938F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1E1341F-54EB-4434-A60A-0B24A3D0938F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1E1341F-54EB-4434-A60A-0B24A3D0938F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1E1341F-54EB-4434-A60A-0B24A3D0938F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

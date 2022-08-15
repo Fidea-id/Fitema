@@ -1,9 +1,3 @@
-using Fitema.Database;
-using Fitema.Repository.Contracts;
-using Fitema.Repository.Impl;
-using Fitema.Services.Contracts;
-using Fitema.Services.Impl;
-
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 
@@ -19,24 +13,6 @@ builder.Services.AddSession(options =>
 });
 
 builder.Services.AddControllersWithViews();
-builder.Services.AddSwaggerGen();
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
-builder.Services.AddTransient<IDatabaseConnectionFactory, DatabaseConnectionFactory>();
-
-builder.Services.AddScoped<IBillRepository, BillRepository>();
-builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
-builder.Services.AddScoped<IFitemaDataRepository, FitemaDataRepository>();
-builder.Services.AddScoped<IOrganizationRepository, OrganizationRepository>();
-builder.Services.AddScoped<IOrgOptionRepository, OrgOptionRepository>();
-builder.Services.AddScoped<IPlanRepository, PlanRepository>();
-builder.Services.AddScoped<IProductRepository, ProductRepository>();
-builder.Services.AddScoped<ISystemLogRepository, SystemLogRepository>();
-builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
-builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<IVoucherRepository, VoucherRepository>();
-
-builder.Services.AddScoped<IAuthService, AuthService>();
 
 
 var app = builder.Build();
@@ -47,9 +23,6 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Home/Error");
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
-
-    app.UseSwagger();
-    app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
