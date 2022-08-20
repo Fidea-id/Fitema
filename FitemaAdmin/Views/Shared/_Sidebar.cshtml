@@ -1,0 +1,37 @@
+﻿<div class="left-sidenav">
+    <!-- LOGO -->
+    <div class="brand">
+        <a asp-controller="home" asp-action="index" class="logo">
+            <span>
+                <img src="~/images/logo-sm.png" alt="logo-small" class="logo-sm">
+            </span>
+            <span>
+                <img src="~/images/logo.png" alt="logo-large" class="logo-lg logo-light">
+                <img src="~/images/logo-dark.png" alt="logo-large" class="logo-lg logo-dark">
+            </span>
+        </a>
+    </div>
+    <!--end logo-->
+    <div class="menu-content h-100" data-simplebar>
+        <ul class="metismenu left-sidenav-menu">
+            <li class="menu-label mt-0">Main</li>
+            <li>
+                <a asp-controller="home" asp-action="index"> <i data-feather="home" class="align-self-center menu-icon"></i><span>Dashboard</span></a>
+            </li>
+            <li>
+                <a asp-controller="home" asp-action="index"> <i data-feather="book" class="align-self-center menu-icon"></i><span>Transaksi</span></a>
+            </li>
+            <li>
+                <a asp-controller="home" asp-action="index"> <i data-feather="package" class="align-self-center menu-icon"></i><span>Produk</span></a>
+            </li>
+            <hr class="hr-dashed hr-menu">
+            <li class="menu-label my-2">Organization Area</li>
+            <li>
+                <a asp-controller="home" asp-action="index"> <i data-feather="credit-card" class="align-self-center menu-icon"></i><span>Tagihan</span></a>
+            </li>
+            <li>
+                <a asp-controller="home" asp-action="index"> <i data-feather="settings" class="align-self-center menu-icon"></i><span>Pengaturan</span></a>
+            </li>
+        </ul>
+    </div>
+</div>
