@@ -1726,6 +1726,16 @@ img {
 .single-price-plan .plan-price > h2 > small {
   font-size: 60%;
 }
+.single-price-plan .plan-price > h3 {
+  font-size: 2em;
+  background-image: var(--primary-bg-color-2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.single-price-plan .plan-price > h3 > small {
+  font-size: 60%;
+}
 .single-price-plan .plan-button {
   position: absolute;
   left: 50%;

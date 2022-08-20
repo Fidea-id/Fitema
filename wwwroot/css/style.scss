@@ -1698,6 +1698,16 @@ img {
             font-size: 60%;
         }
     }
+    .plan-price > h3 {
+        font-size: 2em;
+        background-image: var(--primary-bg-color-2);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        > small {
+            font-size: 60%;
+        }
+    }
     .plan-button {
         position: absolute;
         left: 50%;
