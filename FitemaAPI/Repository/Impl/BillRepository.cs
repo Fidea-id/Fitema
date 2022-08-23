@@ -20,13 +20,18 @@ namespace FitemaAPI.Repository.Impl
             using var db = _databaseConnectionFactory.GetDbConnection();
             return await db.ExecuteScalarAsync<int>(@"
                 insert into Bills (
-                    OrgId, PlanId, VoucherCode, TotalPayment, StatusId
+                    OrgId, PlanId, VoucherCode, TotalPayment, StatusId, StartDate, EndDate
                 )
                 values (
-                    @OrgId, @PlanId, @VoucherCode, @TotalPayment, @StatusId
+                    @OrgId, @PlanId, @VoucherCode, @TotalPayment, @StatusId, @StartDate, @EndDate
                 );
                 select Id from Bills where Id = last_insert_id()
             ", data);
+        }
+
+        public Task<Bills> GetActiveBill(int orgId)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<IEnumerable<Bills>> GetListBill(int orgId)

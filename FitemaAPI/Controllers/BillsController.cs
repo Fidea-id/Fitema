@@ -21,7 +21,24 @@ namespace FitemaAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAllPlan()
+        {
+            try
+            {
+                var response = await _billService.GetPlans();
+                if (response.Success)
+                    return Ok(response);
+                return BadRequest(response);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.ToString());
+                return StatusCode(500, new DefaultResponse { Message = e.Message, Success = false });
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllUserBill()
         {
             try
             {

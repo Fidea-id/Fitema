@@ -22,5 +22,13 @@ namespace FitemaAPI.Repository.Impl
             select * from Plans 
             where StatusId = @status", new { status = StatusActive.ACTIVE });
         }
+
+        public async Task<Plans> GetPlanById(int id)
+        {
+            var db = _databaseConnectionFactory.GetDbConnection();
+            return await db.QueryFirstOrDefaultAsync<Plans>(@"
+            select * from Plans 
+            where StatusId = @status && Id == @id", new { status = StatusActive.ACTIVE, id = id });
+        }
     }
 }

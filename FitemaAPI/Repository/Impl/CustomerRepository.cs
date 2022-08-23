@@ -25,18 +25,24 @@ namespace FitemaAPI.Repository.Impl
                 values (
                     @OrgId, @Name, @Email, @PhoneNumber
                 );
-                select Id from Bills where Id = last_insert_id()
+                select Id from Customers where Id = last_insert_id()
             ", request);
         }
 
-        public Task DeleteCustomer(int id, int orgId)
+        public async Task DeleteCustomer(int id, int orgId)
         {
-            throw new NotImplementedException();
+            using var db = _databaseConnectionFactory.GetDbConnection();
+            await db.ExecuteScalarAsync(@"
+                delete from Customer where Id = @id And OrgId = @orgId
+            ", new { id = id, OrgId = orgId});
         }
 
-        public Task<IEnumerable<Customers>> GetCustomers(int orgId)
+        public async Task<IEnumerable<Customers>> GetCustomers(int orgId)
         {
-            throw new NotImplementedException();
+            using var db = _databaseConnectionFactory.GetDbConnection();
+            return await db.QueryAsync<Customers>(@"
+                select Id from Customers where OrgId = @Id
+            ", new { Id = orgId });
         }
     }
 }

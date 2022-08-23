@@ -6,6 +6,7 @@ namespace FitemaAPI.Repository.Contracts
     {
         Task<int> CreateBill(Bills data);
         Task<IEnumerable<Bills>> GetListBill(int orgId);
+        Task<Bills> GetActiveBill(int orgId);
         Task UpdateBillStatus(int billId, int statusId);
     }
 }
