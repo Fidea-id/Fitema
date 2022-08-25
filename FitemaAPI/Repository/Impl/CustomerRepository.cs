@@ -15,10 +15,10 @@ namespace FitemaAPI.Repository.Impl
             _databaseConnectionFactory = databaseConnectionFactory;
         }
 
-        public async Task CreateCustomer(Customers request)
+        public async Task<int> CreateCustomer(Customers request)
         {
             using var db = _databaseConnectionFactory.GetDbConnection();
-            await db.ExecuteScalarAsync(@"
+            return await db.ExecuteScalarAsync<int>(@"
                 insert into Customers (
                     OrgId, Name, Email, PhoneNumber
                 )

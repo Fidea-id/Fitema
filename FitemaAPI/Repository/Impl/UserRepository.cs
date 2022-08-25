@@ -16,9 +16,10 @@ namespace FitemaAPI.Repository.Impl
         public async Task<int> CreateUser(Users user)
         {
             using var db = _databaseConnectionFactory.GetDbConnection();
+            var date = DateTime.UtcNow;
             return await db.ExecuteScalarAsync<int>(@"
                 insert into Users (
-                    OrgId, FullName, Email, Password, Role
+                    OrgId, FullName, Email, Password, Role, CreatedAt, UpdatedAt
                 )
                 values (
                     @OrgId, @FullName, @Email, @Password, @Role
