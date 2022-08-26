@@ -52,6 +52,8 @@ app.UseCors(x => x
     .AllowAnyMethod()
     .AllowAnyHeader());
 
+app.UseMiddleware<ApiKeyMiddleware>();
+
 // custom jwt auth middleware
 app.UseMiddleware<JwtMiddleware>();
 

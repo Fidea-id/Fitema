@@ -1,6 +1,6 @@
 ﻿namespace FitemaEntity.Models
 {
-    public class Organizations: BaseModel
+    public class Organizations : BaseModel
     {
         public Organizations()
         {

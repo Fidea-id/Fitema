@@ -2,10 +2,8 @@
 using FitemaAPI.Helpers;
 using FitemaAPI.Repository.Contracts;
 using FitemaAPI.Services.Contracts;
-using FitemaEntity.Dtos.Auth;
 using FitemaEntity.Models;
 using FitemaEntity.Responses;
-using Microsoft.Extensions.Options;
 
 namespace FitemaAPI.Services.Impl
 {
@@ -26,7 +24,7 @@ namespace FitemaAPI.Services.Impl
             var request = await _billRepository.GetListBill(orgId);
             var response = _mapper.Map<IEnumerable<BillResponse>>(request);
 
-            return new DefaultResponse<IEnumerable<BillResponse>> { Data = response, Message = "Success", Success = true } ;
+            return new DefaultResponse<IEnumerable<BillResponse>> { Data = response, Message = "Success", Success = true };
         }
 
         public async Task<DefaultResponse<IEnumerable<Plans>>> GetPlans()

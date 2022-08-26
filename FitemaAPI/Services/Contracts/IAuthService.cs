@@ -1,10 +1,7 @@
 ﻿using FitemaAPI.Helpers;
-using FitemaEntity.Dtos;
-using FitemaEntity.Dtos.Auth;
 using FitemaEntity.Models;
 using FitemaEntity.Requests;
 using FitemaEntity.Responses;
-using System.Security.Claims;
 
 namespace FitemaAPI.Services.Contracts
 {

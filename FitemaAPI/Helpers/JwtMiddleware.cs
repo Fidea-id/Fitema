@@ -22,7 +22,7 @@ namespace FitemaAPI.Helpers
             var token = context.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
 
             if (token != null)
-               await attachUserToContext(context, authService, token);
+                await attachUserToContext(context, authService, token);
 
             await _next(context);
         }

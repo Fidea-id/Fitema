@@ -2,7 +2,6 @@
 using FitemaAPI.Database;
 using FitemaAPI.Repository.Contracts;
 using FitemaEntity.Models;
-using FitemaEntity.Requests;
 
 namespace FitemaAPI.Repository.Impl
 {

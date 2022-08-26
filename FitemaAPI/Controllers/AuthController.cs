@@ -29,7 +29,7 @@ namespace FitemaAPI.Controllers
                     return Ok(response);
                 return BadRequest(response);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 _logger.LogError(e.ToString());
                 return StatusCode(500, new DefaultResponse { Message = e.Message, Success = false });
@@ -46,10 +46,10 @@ namespace FitemaAPI.Controllers
                     return Ok(response);
                 return BadRequest(response);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 _logger.LogError(e.ToString());
-                return StatusCode(500, new DefaultResponse { Message = e.Message, Success = false});
+                return StatusCode(500, new DefaultResponse { Message = e.Message, Success = false });
             }
         }
     }

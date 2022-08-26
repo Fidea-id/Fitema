@@ -2,7 +2,6 @@
 using FitemaAPI.Database;
 using FitemaAPI.Repository.Contracts;
 using FitemaEntity.Models;
-using FitemaEntity.Requests;
 
 namespace FitemaAPI.Repository.Impl
 {
@@ -33,15 +32,15 @@ namespace FitemaAPI.Repository.Impl
         {
             using var db = _databaseConnectionFactory.GetDbConnection();
             await db.ExecuteScalarAsync(@"
-                delete from Customer where Id = @id And OrgId = @orgId
-            ", new { id = id, OrgId = orgId});
+                delete from Customers where Id = @id And OrgId = @orgId
+            ", new { id = id, OrgId = orgId });
         }
 
         public async Task<IEnumerable<Customers>> GetCustomers(int orgId)
         {
             using var db = _databaseConnectionFactory.GetDbConnection();
             return await db.QueryAsync<Customers>(@"
-                select Id from Customers where OrgId = @Id
+                select * from Customers where OrgId = @Id
             ", new { Id = orgId });
         }
     }

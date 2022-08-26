@@ -4,7 +4,7 @@ using FitemaEntity.Responses;
 
 namespace FitemaAPI.MapperProfiles
 {
-    public class BillProfile: Profile
+    public class BillProfile : Profile
     {
         public BillProfile()
         {

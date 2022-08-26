@@ -116,4 +116,8 @@
     <None Include="wwwroot\lib\jquery\jquery.fs.stepper.min.js" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="RestSharp" Version="108.0.1" />
+  </ItemGroup>
+
 </Project>

@@ -1,7 +1,34 @@
+using FitemaAdmin.Services.Contracts;
+using FitemaAdmin.Services.Impl;
+using FitemaEntity.Models;
+
 var builder = WebApplication.CreateBuilder(args);
+ConfigurationManager configuration = builder.Configuration; // allows both to access and to set up the config
+
+var services = builder.Services;
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+services.AddControllersWithViews();
+
+services.AddSingleton<IUriService>(provider =>
+{
+    var uri = new URIModel();
+    var keyEnvironment = configuration["MyAppSettings:Environment"];
+    if (keyEnvironment == "LOCAL")
+    {
+        uri.ApiUrl = "https://localhost:7249/";
+    }
+    else if (keyEnvironment == "PRODUCTION")
+    {
+        uri.ApiUrl = "-";
+    }
+    else
+    {
+        throw new Exception("Environment invalid");
+    }
+
+    return new UriService(uri);
+});
 
 var app = builder.Build();
 

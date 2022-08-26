@@ -29,9 +29,12 @@ namespace FitemaAPI.Repository.Impl
             ", request);
         }
 
-        public Task DeleteProduct(int orgId, int id)
+        public async Task DeleteProduct(int orgId, int id)
         {
-            throw new NotImplementedException();
+            using var db = _databaseConnectionFactory.GetDbConnection();
+            await db.ExecuteScalarAsync(@"
+                delete from Products where Id = @id And OrgId = @orgId
+            ", new { id = id, OrgId = orgId });
         }
 
         public async Task<IEnumerable<Products>> GetListProduct(int orgId)
@@ -42,9 +45,12 @@ namespace FitemaAPI.Repository.Impl
             where OrgId = @id", new { id = orgId });
         }
 
-        public Task<Products> GetProductDetail(int orgId, int productId)
+        public async Task<Products> GetProductDetail(int orgId, int productId)
         {
-            throw new NotImplementedException();
+            using var db = _databaseConnectionFactory.GetDbConnection();
+            return await db.QueryFirstAsync<Products>(@"
+                select * from Products where OrgId = @OrgId And Id = p@Id
+            ", new { Id = productId, OrgId = orgId });
         }
 
         public Task UpdateProduct(Products data)

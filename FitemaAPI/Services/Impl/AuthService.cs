@@ -1,20 +1,16 @@
 ﻿using FitemaAPI.Helpers;
 using FitemaAPI.Repository.Contracts;
 using FitemaAPI.Services.Contracts;
-using FitemaEntity.Dtos;
-using FitemaEntity.Dtos.Auth;
 using FitemaEntity.Models;
 using FitemaEntity.Requests;
 using FitemaEntity.Responses;
 using FitemaEntity.Utils.Constants;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using System.Transactions;
-using Ubiety.Dns.Core;
 
 namespace FitemaAPI.Services.Impl
 {
@@ -51,7 +47,7 @@ namespace FitemaAPI.Services.Impl
 
             // authentication successful so generate jwt token
             var token = generateJwtToken(user);
-            return new DefaultResponse<AuthResponse> { Data = new AuthResponse(user, token), Message = "Success", Success = true};
+            return new DefaultResponse<AuthResponse> { Data = new AuthResponse(user, token), Message = "Success", Success = true };
         }
 
         public async Task<DefaultResponse<Users>> GetById(int id)
