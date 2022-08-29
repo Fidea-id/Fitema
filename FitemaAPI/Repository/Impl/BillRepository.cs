@@ -2,6 +2,7 @@
 using FitemaAPI.Database;
 using FitemaAPI.Repository.Contracts;
 using FitemaEntity.Models;
+using FitemaEntity.Utils.Constants;
 
 namespace FitemaAPI.Repository.Impl
 {
@@ -28,9 +29,13 @@ namespace FitemaAPI.Repository.Impl
             ", data);
         }
 
-        public Task<Bills> GetActiveBill(int orgId)
+        public async Task<Bills> GetActiveBill(int orgId)
         {
-            throw new NotImplementedException();
+            var db = _databaseConnectionFactory.GetDbConnection();
+            var status = StatusActive.ACTIVE;
+            return await db.QueryFirstAsync<Bills>(@"
+            select * from Bills 
+            where Status = @status OrgId = @id", new { status = status, id = orgId });
         }
 
         public async Task<IEnumerable<Bills>> GetListBill(int orgId)

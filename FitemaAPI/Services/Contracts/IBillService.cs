@@ -8,6 +8,6 @@ namespace FitemaAPI.Services.Contracts
     {
         Task<DefaultResponse<IEnumerable<BillResponse>>> GetOrgBills(int orgId);
         Task<DefaultResponse<IEnumerable<Plans>>> GetPlans();
-        Task<DefaultResponse<IEnumerable<Plans>>> GetActiveBills();
+        Task<DefaultResponse<BillResponse>> GetActiveBills(int orgId);
     }
 }

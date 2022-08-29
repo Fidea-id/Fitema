@@ -19,6 +19,15 @@ namespace FitemaAPI.Services.Impl
             _billRepository = billRepository;
             _planRepository = planRepository;
         }
+
+        public async Task<DefaultResponse<BillResponse>> GetActiveBills(int orgId)
+        {
+            var request = await _billRepository.GetActiveBill(orgId);
+            var response = _mapper.Map<BillResponse>(request);
+
+            return new DefaultResponse<BillResponse> { Data = response, Message = "Success", Success = true };
+        }
+
         public async Task<DefaultResponse<IEnumerable<BillResponse>>> GetOrgBills(int orgId)
         {
             var request = await _billRepository.GetListBill(orgId);
