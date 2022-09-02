@@ -2,6 +2,7 @@
 using FitemaAPI.Helpers;
 using FitemaAPI.Repository.Contracts;
 using FitemaAPI.Services.Contracts;
+using FitemaEntity.Dtos.Bill;
 using FitemaEntity.Models;
 using FitemaEntity.Responses;
 
@@ -36,11 +37,12 @@ namespace FitemaAPI.Services.Impl
             return new DefaultResponse<IEnumerable<BillResponse>> { Data = response, Message = "Success", Success = true };
         }
 
-        public async Task<DefaultResponse<IEnumerable<Plans>>> GetPlans()
+        public async Task<DefaultResponse<IEnumerable<PlanDto>>> GetPlans()
         {
             var response = await _planRepository.GetPlanList();
+            var map = _mapper.Map<IEnumerable<PlanDto>>(response);
 
-            return new DefaultResponse<IEnumerable<Plans>> { Data = response, Message = "Success", Success = true };
+            return new DefaultResponse<IEnumerable<PlanDto>> { Data = map, Message = "Success", Success = true };
         }
     }
 }

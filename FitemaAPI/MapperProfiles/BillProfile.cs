@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FitemaEntity.Dtos.Bill;
 using FitemaEntity.Models;
 using FitemaEntity.Responses;
 
@@ -9,6 +10,7 @@ namespace FitemaAPI.MapperProfiles
         public BillProfile()
         {
             CreateMap<Bills, BillResponse>();
+            CreateMap<Plans, PlanDto>();
         }
     }
 }

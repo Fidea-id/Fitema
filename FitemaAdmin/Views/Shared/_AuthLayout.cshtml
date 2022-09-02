@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Fitema - @ViewData["Title"]</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta content="Fitema" name="description" />
+        <meta content="" name="author" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="~/images/favicon.ico">
+        
+        @RenderSection("Styles", false)
+
+        <!-- App css -->
+        <link href="~/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="~/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="~/css/app.min.css" rel="stylesheet" type="text/css" />
+    </head>
+
+    <body class="account-body accountbg">
+
+        <!-- Log In page -->
+        <div class="container">
+            <div class="row vh-100 d-flex justify-content-center">
+                <div class="col-12 align-self-center">
+                    <div class="row">
+                        <div class="col-lg-5 mx-auto">
+                            <div class="card">
+                                @RenderBody()
+                                <div class="card-body bg-light-alt text-center">
+                                    <span class="text-muted d-none d-sm-inline-block">Fidea Teams © <script>
+                                        document.write(new Date().getFullYear())
+                                    </script></span>                                            
+                                </div>
+                            </div><!--end card-->
+                        </div><!--end col-->
+                    </div><!--end row-->
+                </div><!--end col-->
+            </div><!--end row-->
+        </div><!--end container-->
+        <!-- End Log In page -->
+        <!-- jQuery  -->
+
+        @RenderSection("scripts", false)
+        <script src="~/js/jquery.min.js"></script>
+        <script src="~/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/waves.js"></script>
+        <script src="~/js/feather.min.js"></script>
+        <script src="~/js/simplebar.min.js"></script>
+    </body>
+</html>

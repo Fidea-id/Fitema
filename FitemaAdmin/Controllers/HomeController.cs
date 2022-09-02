@@ -16,6 +16,10 @@ namespace FitemaAdmin.Controllers
         public IActionResult Index()
         {
             ViewData["Title"] = "Dashboard";
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Login","Auth");
+            }
             return View();
         }
 

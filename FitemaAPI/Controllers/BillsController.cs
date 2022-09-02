@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FitemaAPI.Controllers
 {
-    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class BillsController : Controller
@@ -13,14 +12,14 @@ namespace FitemaAPI.Controllers
         private IBillService _billService;
         private readonly ILogger<BillsController> _logger;
 
-        public BillsController(
+        public BillsController( 
             ILogger<BillsController> logger, IBillService billService)
         {
             _logger = logger;
             _billService = billService;
         }
 
-        [HttpGet]
+        [HttpGet("GetPlan")]
         public async Task<IActionResult> GetAllPlan()
         {
             try
@@ -37,7 +36,8 @@ namespace FitemaAPI.Controllers
             }
         }
 
-        [HttpGet]
+        [Authorize]
+        [HttpGet("GetUserBill")]
         public async Task<IActionResult> GetAllUserBill()
         {
             try

@@ -1,3 +1,4 @@
+using FitemaAdmin.Services;
 using FitemaAdmin.Services.Contracts;
 using FitemaAdmin.Services.Impl;
 using FitemaEntity.Models;
@@ -29,6 +30,8 @@ services.AddSingleton<IUriService>(provider =>
 
     return new UriService(uri);
 });
+
+services.AddScoped<IRestRequestService, RestRequestService>();
 
 var app = builder.Build();
 
