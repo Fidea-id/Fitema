@@ -15,13 +15,13 @@ namespace FitemaAdmin.Services.Impl
             _restRequestService = restRequestService;
         }
 
-        public async Task<DefaultResponse<AuthResponse>> SignIn(LoginRequest request)
+        public async Task<ApiResponse<AuthResponse>> SignIn(LoginRequest request)
         {
             var response = await _restRequestService.PostResponse("Auth/Authenticate", JsonConvert.SerializeObject(request));
             return ResponseHelper<AuthResponse>.SetResponse(response);
         }
 
-        public async Task<DefaultResponse<CreateUserResponse>> CreateUser(CreateUserRequest request)
+        public async Task<ApiResponse<CreateUserResponse>> CreateUser(CreateUserRequest request)
         {
             var response = await _restRequestService.PostResponse("Auth/Register", JsonConvert.SerializeObject(request));
             return ResponseHelper<CreateUserResponse>.SetResponse(response);

@@ -52,9 +52,9 @@ namespace FitemaAPI.Repository.Impl
             await db.ExecuteAsync(@"
                 update Bills 
                 set StatusId = @statusId,
-                    UpdatedAt = now()
+                    UpdatedAt = @now
                 where Id = @id
-            ", new { id = billId, statusId = statusId });
+            ", new { id = billId, statusId = statusId, now = DateTime.UtcNow });
         }
     }
 }

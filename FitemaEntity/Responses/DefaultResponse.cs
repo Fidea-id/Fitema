@@ -2,7 +2,7 @@
 
 namespace FitemaEntity.Responses
 {
-    public class DefaultResponse<T>
+    public class ApiResponse<T>
     {
         public T? Data { get; set; }
         public bool IsSuccess { get; set; }

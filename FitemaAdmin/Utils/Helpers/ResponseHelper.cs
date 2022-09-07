@@ -6,7 +6,7 @@ namespace FitemaAdmin.Utils.Helpers
 {
     public static class ResponseHelper<T>
     {
-        public static DefaultResponse<T> SetResponse(RestResponse response)
+        public static ApiResponse<T> SetResponse(RestResponse response)
         {
             var content = JsonConvert.DeserializeObject<T>(response.Content);
             var message = "Success";
@@ -14,7 +14,7 @@ namespace FitemaAdmin.Utils.Helpers
             {
                 message = "Fail";
             }
-            var result = new DefaultResponse<T>
+            var result = new ApiResponse<T>
             {
                 Data = content,
                 IsSuccess = response.IsSuccessful,
@@ -24,10 +24,10 @@ namespace FitemaAdmin.Utils.Helpers
             };
             return result;
         }
-        public static DefaultResponse<string> SetExceptionResponse(Exception response)
+        public static ApiResponse<string> SetExceptionResponse(Exception response)
         {
             var message = "Error";
-            var result = new DefaultResponse<string>
+            var result = new ApiResponse<string>
             {
                 Data = null,
                 IsSuccess = false,

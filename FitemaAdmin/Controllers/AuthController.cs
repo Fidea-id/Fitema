@@ -45,6 +45,14 @@ namespace FitemaAdmin.Controllers
             try
             {
                 var response = await _authService.SignIn(request);
+
+
+                var now = DateTime.UtcNow;
+
+
+                var localDate = now.ToLocalTime();
+
+
                 return Ok(response);
             }
             catch(Exception e)
